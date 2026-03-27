@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 // Replace these with your actual VAPI credentials found in your dashboard
 const VAPI_PUBLIC_KEY = "d3e5c47d-ac2b-4c71-8047-93519d8ae25d";
-const VAPI_SQUAD_ID = "8f9242db-3817-4a1b-80c0-b2deddde540f";
+const VAPI_SQUAD_ID = "561ee683-6af7-4c67-b184-151331c16efa";
 
 export default function App() {
   const [callStatus, setCallStatus] = useState("inactive"); // inactive, loading, active, assistant-speaking
