@@ -36,7 +36,8 @@ export default function App() {
     if (callStatus === "inactive") {
       setCallStatus("loading");
       try {
-        await vapi.start(VAPI_SQUAD_ID);
+        // Vapi Web SDK strictly requires Squad IDs to be passed as the third parameter
+        await vapi.start(null, null, VAPI_SQUAD_ID);
       } catch (err) {
         console.error("Failed to start VAPI call", err);
         setCallStatus("inactive");
