@@ -4,8 +4,8 @@ import { Mic, MicOff, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Replace these with your actual VAPI credentials found in your dashboard
-const VAPI_PUBLIC_KEY = "YOUR_VAPI_PUBLIC_KEY"; 
-const VAPI_SQUAD_ID = "YOUR_SQUAD_ID"; 
+const VAPI_PUBLIC_KEY = "d3e5c47d-ac2b-4c71-8047-93519d8ae25d";
+const VAPI_SQUAD_ID = "8f9242db-3817-4a1b-80c0-b2deddde540f";
 
 export default function App() {
   const [callStatus, setCallStatus] = useState("inactive"); // inactive, loading, active, assistant-speaking
@@ -25,7 +25,7 @@ export default function App() {
       console.error(e);
       setCallStatus("inactive");
     });
-    
+
     return () => vapi.removeAllListeners();
   }, []);
 
@@ -62,14 +62,14 @@ export default function App() {
 
       <div className="z-10 flex flex-col items-center gap-12 max-w-lg text-center px-6">
         <div className="space-y-4">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500"
           >
             AI Agent Demo
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -85,15 +85,15 @@ export default function App() {
             {(isActive || isAssistantSpeaking) && (
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ 
-                  opacity: 1, 
+                animate={{
+                  opacity: 1,
                   scale: [1, 1.2 + volumeLevel * 3, 1], // Pulse reacts to volume
                 }}
                 exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ 
-                  duration: isAssistantSpeaking ? 0.8 : 0.4, 
-                  repeat: Infinity, 
-                  ease: "easeInOut" 
+                transition={{
+                  duration: isAssistantSpeaking ? 0.8 : 0.4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
                 }}
                 className={`absolute inset-0 rounded-full blur-2xl opacity-60 ${isAssistantSpeaking ? 'bg-purple-500' : 'bg-blue-500'}`}
               />
